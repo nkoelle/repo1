@@ -5,11 +5,10 @@ FLAGS = -Wall -Werror -Wextra -g -fsanitize=address -L ./mlx -lmlx -L ./libft -l
 INCLUDES = so_long.h
 
 SRC = so_long.c\
-ft_map.c\
+ft_map_alloc.c\
+ft_map_error.c\
 ft_create_map_surface.c\
-ft_so_long_utils.c\
-get_next_line/get_next_line_utils.c\
-get_next_line/get_next_line.c\
+ft_so_long_utils.c
 
 LIBFT = $(MAKE) -C ./libft
 

@@ -2,8 +2,6 @@
 # define SO_LONG_H
 # include "./mlx/mlx.h"
 # include "./libft/libft.h"
-# include "./get_next_line/get_next_line.h"
-# include <unistd.h>
 # include <fcntl.h>
 # include <stdio.h>
 # include <errno.h>
@@ -76,6 +74,7 @@ typedef struct s_game
 int			main(int argc, char **argv);
 void		ft_mapalloc(char **argv, t_game *game);
 void		ft_fill_map(char **argv, t_game *game, int fd);
+
 void		ft_check_validmap_walls(t_game *game);
 void		ft_check_validmap_content(t_game *game);
 int			ft_validmap_content_count(t_game *game);
