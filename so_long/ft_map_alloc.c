@@ -6,7 +6,7 @@
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/16 15:33:07 by nkolle            #+#    #+#             */
-/*   Updated: 2022/01/07 17:53:39 by nkolle           ###   ########.fr       */
+/*   Updated: 2022/01/13 17:32:23 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	ft_mapalloc(char **argv, t_game *game)
 	line = get_next_line(fd);
 	game->map.col = ft_strlen(line);
 	game->fields.f_col = game->map.col;
-	game->fields.f_row = 0;							// 1 oder 0?
+	game->fields.f_row = 0;
 	while (line != NULL)
 	{
 		free(line);
@@ -62,17 +62,20 @@ void	ft_fill_map(char **argv, t_game *game, int fd)
 	ft_check_validmap_walls(game);
 }
 
-// void	ft_checkmap(t_game *game)
+// void	ft_map(t_game *game)
 // {
 // 	int	x;
 // 	int	y;
 	
-// 	for(y = 0; y < game->fields.f_row; y++)
+// 	y = 0;
+// 	while (y < game->fields.f_col)
 // 	{
-// 		for(x = 0; x < game->fields.f_col; x++)
+// 		x = 0;
+// 		while (x < game->fields.f_row)
 // 		{
-// 			printf("%c ", game->map.map[y][x]);
+// 			printf("%c \n", game->map.map[y][x]);
+// 			x++;
 // 		}
-// 	printf("\n"); // new line
+// 	y++;
 // 	}
-// } 
+// }

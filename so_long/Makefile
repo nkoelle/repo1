@@ -1,6 +1,6 @@
 CC = gcc
 
-FLAGS = -Wall -Werror -Wextra -g -fsanitize=address -L ./mlx -lmlx -L ./libft -lft -framework OpenGl -framework AppKit
+FLAGS = -Wall -Werror -Wextra -L ./mlx -lmlx -L ./libft -lft -framework OpenGl -framework AppKit
 
 INCLUDES = so_long.h
 
@@ -8,6 +8,8 @@ SRC = so_long.c\
 ft_map_alloc.c\
 ft_map_error.c\
 ft_create_map_surface.c\
+ft_start_game.c\
+ft_move.c\
 ft_so_long_utils.c
 
 LIBFT = $(MAKE) -C ./libft
