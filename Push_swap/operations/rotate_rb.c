@@ -1,35 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_pa.c                                          :+:      :+:    :+:   */
+/*   rotate_rb.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 18:41:36 by nkolle            #+#    #+#             */
-/*   Updated: 2022/02/01 18:28:44 by nkolle           ###   ########.fr       */
+/*   Created: 2022/01/27 17:02:34 by nkolle            #+#    #+#             */
+/*   Updated: 2022/01/27 17:17:30 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Push_swap.h"
 
-void	push_pa(t_stack **head_a, t_stack **head_b)
+void	rotate_rb(t_stack **head)
 {
-	t_stack	*tmp;
-	
-	tmp = NULL;
-	if (!head_b)
-	{
-		(*head_b) = (*head_a);
-		(*head_a) = (*head_a)->next;
-		(*head_b)->next = NULL;
-	}
-	if (*head_b)
-	{
-		tmp = (*head_b)->next;
-		(*head_b)->next = *head_a;
-		*head_a = *head_b;
-		*head_b = tmp;
-	}
+	t_stack *tmp;
+	t_stack *tmp2;
 
-	write(1, "pa\n", 3);
+	tmp = (*head);
+	(*head) = (*head)->next;
+	tmp2 = (*head);
+	while (tmp2->next != NULL)
+		tmp2 = tmp2->next;
+	tmp2->next = tmp; 
+	tmp->next = NULL;
+	write(1, "rb\n", 3);
 }

@@ -1,35 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_pa.c                                          :+:      :+:    :+:   */
+/*   push_pb.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 18:41:36 by nkolle            #+#    #+#             */
-/*   Updated: 2022/02/01 18:28:44 by nkolle           ###   ########.fr       */
+/*   Created: 2022/01/27 16:58:07 by nkolle            #+#    #+#             */
+/*   Updated: 2022/02/02 14:20:42 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Push_swap.h"
 
-void	push_pa(t_stack **head_a, t_stack **head_b)
+void	push_pb(t_stack **head_a, t_stack **head_b)
 {
 	t_stack	*tmp;
 	
 	tmp = NULL;
-	if (!head_b)
+	if (!head_a || !head_b)
+		return ;
+	if (*head_a)
 	{
-		(*head_b) = (*head_a);
-		(*head_a) = (*head_a)->next;
-		(*head_b)->next = NULL;
+		tmp = (*head_a)->next;
+		(*head_a)->next = (*head_b);
+		(*head_b) = *head_a;
+		(*head_a) = tmp;
 	}
-	if (*head_b)
-	{
-		tmp = (*head_b)->next;
-		(*head_b)->next = *head_a;
-		*head_a = *head_b;
-		*head_b = tmp;
-	}
-
-	write(1, "pa\n", 3);
+	write(1, "pb\n", 3);
 }

@@ -1,35 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_pa.c                                          :+:      :+:    :+:   */
+/*   ft_cases.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 18:41:36 by nkolle            #+#    #+#             */
-/*   Updated: 2022/02/01 18:28:44 by nkolle           ###   ########.fr       */
+/*   Created: 2022/01/26 18:57:39 by nkolle            #+#    #+#             */
+/*   Updated: 2022/01/28 16:09:33 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Push_swap.h"
 
-void	push_pa(t_stack **head_a, t_stack **head_b)
+void	case_one(t_stack **stack_a)
 {
-	t_stack	*tmp;
-	
-	tmp = NULL;
-	if (!head_b)
-	{
-		(*head_b) = (*head_a);
-		(*head_a) = (*head_a)->next;
-		(*head_b)->next = NULL;
-	}
-	if (*head_b)
-	{
-		tmp = (*head_b)->next;
-		(*head_b)->next = *head_a;
-		*head_a = *head_b;
-		*head_b = tmp;
-	}
+	swap_single_sa(stack_a);
+}
 
-	write(1, "pa\n", 3);
+void	case_two(t_stack **stack_a)
+{
+	swap_single_sa(stack_a);
+	rev_rotate_rra(stack_a);
+}
+
+void	case_three(t_stack **stack_a)
+{
+	rotate_ra(stack_a);
+}
+
+void	case_four(t_stack **stack_a)
+{
+	swap_single_sa(stack_a);
+	rotate_ra(stack_a);
+}
+
+void	case_five(t_stack **stack_a)
+{
+	rev_rotate_rra(stack_a);
 }

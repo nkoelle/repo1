@@ -6,7 +6,7 @@
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/19 14:10:12 by nkolle            #+#    #+#             */
-/*   Updated: 2022/01/26 17:51:32 by nkolle           ###   ########.fr       */
+/*   Updated: 2022/01/28 17:22:40 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,12 +34,15 @@ void push_element(t_stack **head, int content)
 
 }
 
-void	print_stack(t_stack **head)
+void	print_stack(t_stack *head)
 {
-	while (*head)
+	t_stack	*tmp;
+	
+	tmp = head;
+	while (tmp)
 	{
-		printf("%d\n", (*head)->content);
-		*head = (*head)->next;
+		printf("%d\n", tmp->content);
+		tmp = tmp->next;
 	}
 }
 

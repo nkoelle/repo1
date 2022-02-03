@@ -14,12 +14,19 @@ SRC = Push_swap.c\
 	Utils/ft_strdup.c\
 	Utils/ft_isdigit.c\
 	operations/rotate_ra.c\
+	operations/rotate_rb.c\
 	operations/rev_rotate_rra.c\
+	operations/rev_rotate_rrb.c\
 	operations/push_pa.c\
+	operations/push_pb.c\
 	operations/swap_single_sa.c\
+	operations/swap_single_sb.c\
 	operations/rotate_both_rr.c\
 	operations/rev_rotate_both_rrr.c\
-	operations/swap_both_ss.c
+	operations/swap_both_ss.c\
+	sort/ft_cases.c\
+	sort/ft_sort_3.c\
+	sort/ft_sort_5.c
 
 
 OBJS = $(SRC:.c=.o)

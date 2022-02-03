@@ -1,35 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_pa.c                                          :+:      :+:    :+:   */
+/*   swap_single_sb.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 18:41:36 by nkolle            #+#    #+#             */
-/*   Updated: 2022/02/01 18:28:44 by nkolle           ###   ########.fr       */
+/*   Created: 2022/01/27 17:06:38 by nkolle            #+#    #+#             */
+/*   Updated: 2022/01/27 17:06:54 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Push_swap.h"
 
-void	push_pa(t_stack **head_a, t_stack **head_b)
+void	swap_single_sb(t_stack **head)
 {
-	t_stack	*tmp;
-	
-	tmp = NULL;
-	if (!head_b)
-	{
-		(*head_b) = (*head_a);
-		(*head_a) = (*head_a)->next;
-		(*head_b)->next = NULL;
-	}
-	if (*head_b)
-	{
-		tmp = (*head_b)->next;
-		(*head_b)->next = *head_a;
-		*head_a = *head_b;
-		*head_b = tmp;
-	}
+	t_stack *tmp;
 
-	write(1, "pa\n", 3);
+	tmp = (*head)->next;
+	(*head)->next = tmp->next;
+	tmp->next = (*head);
+	(*head) = tmp;
+	write(1, "sb\n", 3);
 }

@@ -6,7 +6,7 @@
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/24 16:17:41 by nkolle            #+#    #+#             */
-/*   Updated: 2022/01/26 17:54:33 by nkolle           ###   ########.fr       */
+/*   Updated: 2022/02/01 14:31:24 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,8 @@
 //input check von den strings argv[i++] und deren elemente j
 int	ft_isint(char **argv)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	i = 1;
 	while (argv[i])
@@ -28,13 +28,7 @@ int	ft_isint(char **argv)
 		if (ft_strlen(argv[i]) == 11 && argv[i][j] == '-')
 			return(ft_sizeofint(argv[i]));
 		if (ft_strlen(argv[i]) > 10)
-			return (0);
-		if ((argv[i][j] == '-' || argv[i][j] == '+' || argv[i][j] == '0') 
-			&& ft_isdigit(argv[i][1]) != 0)
-			j++;
-		if ((argv[i][j] >= '0' && argv[i][j] <= '9') || argv[i][j] == ' ')
-			j++;
-		//printf("2 i = %d argv = %s \n", i ,argv[i]);	
+			return (0);	
 		i++;
 	}
 	return (1);
@@ -73,13 +67,38 @@ int	ft_sizeofint(char *s)
 	return (1);
 }
 
+int	ft_only_num(char **argv)
+{
+	int	i;
+	int	j;
+	
+	i = 1;
+	while(argv[i])
+	{
+		j = 0;
+		if ((argv[i][j] == '-' || argv[i][j] == '+') 
+			&& ft_isdigit(argv[i][++j]) != 0)
+			j++;
+		if (((argv[i][j] >= '0' && argv[i][j] <= '9') 
+			 && ft_isdigit(argv[i][j]) != 0) || argv[i][j] == ' ')
+			j++;
+		else
+			return (0);
+	}
+	return (1);
+}
+
 int	ft_dupnumb(t_stack *stack_a, int c)
 {
-	while (!stack_a)
+	t_stack *tmp;
+
+	tmp = stack_a;
+	while (tmp != NULL)
 	{
-		if(stack_a->content == c)
+		if (tmp->content == c)
 			return(1);
-		stack_a = stack_a->next;
+		if (tmp->content != c)
+			tmp = tmp->next;
 	}
 	return (0);
 }
