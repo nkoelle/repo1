@@ -6,7 +6,7 @@
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 18:42:29 by nkolle            #+#    #+#             */
-/*   Updated: 2022/02/03 17:37:17 by nkolle           ###   ########.fr       */
+/*   Updated: 2022/02/08 16:57:21 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,33 +24,18 @@ void	ft_sort_3(t_stack **stack_a, int argc)
 	b = (*stack_a)->next->content;
 	c = (*stack_a)->next->next->content;
 	if (a > b && b < c && c > a)
-	{
-		case_one(stack_a);
-		return ;
-	}
+		return (case_one(stack_a));
 	if (a > b && b > c && c < a)
-	{
-		case_two(stack_a);
-		return ;
-	}
+		return (case_two(stack_a));
 	if (a > b && a > c && c > b)
-	{
-		case_three(stack_a);
-		return ;
-	}
+		return (case_three(stack_a));
 	if (a < b && a < c && b > c)
-	{
-		case_four(stack_a);
-		return ;
-	}
+		return (case_four(stack_a));
 	if (a < b && a > c && b > c)
-	{
-		case_five(stack_a);
-		return ;
-	}
+		return (case_five(stack_a));
 }
 
-void	ft_sort_2(t_stack **stack_a,int argc)
+void	ft_sort_2(t_stack **stack_a, int argc)
 {
 	int	a;
 	int	b;

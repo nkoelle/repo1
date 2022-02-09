@@ -6,7 +6,7 @@
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 18:42:45 by nkolle            #+#    #+#             */
-/*   Updated: 2022/02/03 18:25:36 by nkolle           ###   ########.fr       */
+/*   Updated: 2022/02/08 17:26:19 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,14 +22,15 @@ void	ft_sort_5(t_stack **stack_a, t_stack **stack_b, int argc)
 	push_pa(stack_a, stack_b);
 }
 
-//rotating minimum_node in stack_a to top position in stack_a to push it in right order to stack_b
+//rotating minimum_node in stack_a to top position in stack_a 
+//to push it in right order to stack_b
 //in order to have only 3 numbers in stack_a ->ft_sort_3
 void	find_min(t_stack **stack_a, t_stack **stack_b)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 	int		min_pos;
 	int		count;
-	
+
 	count = 0;
 	tmp = (*stack_a);
 	min_pos = search_min(&tmp);
@@ -40,50 +41,26 @@ void	find_min(t_stack **stack_a, t_stack **stack_b)
 	}
 	while (min_pos <= 5 && min_pos > 3)
 	{
+		if (ft_lstsize(*stack_a) == 4 && min_pos == 5)
+			break ;
 		rev_rotate_rra(stack_a);
 		min_pos++;
 	}
-	//print_stack(*stack_a);
-	push_pb(stack_a, stack_b);
+	 push_pb(stack_a, stack_b);
 }
 
-// finding minimum in stack_a to get node to push to stack_b
-// int	search_min(t_stack **tmp)
-// {
-// 	int	a;
-// 	int	count;
-// 	int	pos;
-// 	int	min;
-
-// 	min = (*tmp)->content;
-// 	count = 0;
-// 	pos = 0;
-// 	while((*tmp)->next != NULL)
-// 	{
-// 		a = (*tmp)->next->content;
-// 		count++;
-// 		if (min > a)
-// 		{
-// 			printf("min = %d \n", min);
-// 			pos = count;
-// 			min = a;
-// 		}
-// 		(*tmp)= (*tmp)->next;
-// 	}
-// 	printf("pos = %d \n", p);
-// 	return(pos);
-// }
-
+//getting the position of the minmum number in stack_a 
+//and returnig it to find_min
 int	search_min(t_stack **tmp)
 {
 	int	min_pos;
 	int	min;
-	int count;
+	int	count;
 
 	min = (*tmp)->content;
 	min_pos = 0;
 	count = min_pos;
-	while((*tmp))
+	while ((*tmp))
 	{
 		count++;
 		if ((*tmp)->content < min)
@@ -91,7 +68,7 @@ int	search_min(t_stack **tmp)
 			min_pos = count;
 			min = (*tmp)->content;
 		}
-		(*tmp)= (*tmp)->next;
+		(*tmp) = (*tmp)->next;
 	}
-	return(min_pos);
+	return (min_pos);
 }

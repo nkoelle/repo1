@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rev_rotate_both_rrr.c                              :+:      :+:    :+:   */
+/*   ft_lstsize.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 18:41:39 by nkolle            #+#    #+#             */
-/*   Updated: 2022/02/08 16:26:32 by nkolle           ###   ########.fr       */
+/*   Created: 2021/08/06 17:09:18 by nkolle            #+#    #+#             */
+/*   Updated: 2022/02/07 16:10:04 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Push_swap.h"
 
-void	rev_rotate_both_rrr(t_stack **head_a, t_stack **head_b)
+int	ft_lstsize(t_stack *lst)
 {
-	if (head_a && head_b)
+	int		i;
+	t_stack	*element;
+
+	i = 0;
+	element = lst;
+	while (element != NULL)
 	{
-		rev_rotate_rra(head_a);
-		rev_rotate_rra(head_b);
+		element = element->next;
+		i++;
 	}
-	else
-		return ;
+	return (i);
 }

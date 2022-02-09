@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rev_rotate_both_rrr.c                              :+:      :+:    :+:   */
+/*   ft_sorted.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/01/18 18:41:39 by nkolle            #+#    #+#             */
-/*   Updated: 2022/02/08 16:26:32 by nkolle           ###   ########.fr       */
+/*   Created: 2022/02/08 17:04:43 by nkolle            #+#    #+#             */
+/*   Updated: 2022/02/08 17:15:00 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Push_swap.h"
 
-void	rev_rotate_both_rrr(t_stack **head_a, t_stack **head_b)
+int	ft_sorted(t_stack **stack_a)
 {
-	if (head_a && head_b)
+	t_stack	*tmp;
+
+	tmp = (*stack_a);
+	while (tmp->next != NULL)
 	{
-		rev_rotate_rra(head_a);
-		rev_rotate_rra(head_b);
+		if (tmp->content < tmp->next->content)
+			tmp = tmp->next;
+		else
+			return (0);
 	}
-	else
-		return ;
+	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 18:41:45 by nkolle            #+#    #+#             */
-/*   Updated: 2022/01/21 13:33:54 by nkolle           ###   ########.fr       */
+/*   Updated: 2022/02/08 16:26:42 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 void	rev_rotate_rra(t_stack **head)
 {
-	t_stack *tmp;
-	t_stack *tmp2;
-	
+	t_stack	*tmp;
+	t_stack	*tmp2;
+
 	tmp = *head;
 	tmp2 = tmp;
 	while (tmp->next->next != NULL)
@@ -24,6 +24,5 @@ void	rev_rotate_rra(t_stack **head)
 	*head = tmp->next;
 	(*head)->next = tmp2;
 	tmp->next = NULL;
-
 	write(1, "rra\n", 4);
 }

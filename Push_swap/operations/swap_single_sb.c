@@ -6,7 +6,7 @@
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/27 17:06:38 by nkolle            #+#    #+#             */
-/*   Updated: 2022/01/27 17:06:54 by nkolle           ###   ########.fr       */
+/*   Updated: 2022/02/08 16:27:40 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	swap_single_sb(t_stack **head)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 
 	tmp = (*head)->next;
 	(*head)->next = tmp->next;

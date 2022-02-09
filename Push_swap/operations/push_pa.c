@@ -6,7 +6,7 @@
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 18:41:36 by nkolle            #+#    #+#             */
-/*   Updated: 2022/02/01 18:28:44 by nkolle           ###   ########.fr       */
+/*   Updated: 2022/02/08 16:26:26 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	push_pa(t_stack **head_a, t_stack **head_b)
 {
 	t_stack	*tmp;
-	
+
 	tmp = NULL;
 	if (!head_b)
 	{
@@ -30,6 +30,5 @@ void	push_pa(t_stack **head_a, t_stack **head_b)
 		*head_a = *head_b;
 		*head_b = tmp;
 	}
-
 	write(1, "pa\n", 3);
 }
