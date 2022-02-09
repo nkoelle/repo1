@@ -6,7 +6,7 @@
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 18:42:29 by nkolle            #+#    #+#             */
-/*   Updated: 2022/02/09 18:46:57 by nkolle           ###   ########.fr       */
+/*   Updated: 2022/02/08 16:57:21 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void	ft_sort_3(t_stack **stack_a, int argc)
 	int	b;
 	int	c;
 
-	if (argc == 2)
+	if (argc == 3)
 		return (ft_sort_2(stack_a, argc));
 	a = (*stack_a)->content;
 	b = (*stack_a)->next->content;

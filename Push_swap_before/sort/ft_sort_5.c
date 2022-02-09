@@ -6,7 +6,7 @@
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 18:42:45 by nkolle            #+#    #+#             */
-/*   Updated: 2022/02/09 18:47:31 by nkolle           ###   ########.fr       */
+/*   Updated: 2022/02/08 17:26:19 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	ft_sort_5(t_stack **stack_a, t_stack **stack_b, int argc)
 {
 	find_min(stack_a, stack_b);
-	if (argc == 5)
+	if (argc == 6)
 		find_min(stack_a, stack_b);
 	ft_sort_3(stack_a, argc);
 	push_pa(stack_a, stack_b);

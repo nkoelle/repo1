@@ -6,7 +6,7 @@
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:07:33 by nkolle            #+#    #+#             */
-/*   Updated: 2022/02/09 18:22:50 by nkolle           ###   ########.fr       */
+/*   Updated: 2022/02/08 17:08:45 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
-# include <limits.h>
 
 typedef struct s_stack
 {
@@ -37,7 +36,7 @@ t_stack	*new_stack(int content);
 t_stack	*ft_lstlast_ps(t_stack *lst);
 void	print_stack(t_stack *head);
 int		ft_error_message(void);
-long	ft_atoi(const char *str, int *error);
+int		ft_atoi(const char *str, int *error);
 int		sort_out(const char *s, int *signcounter, int *i);
 void	push_element(t_stack **head, int content);
 void	ft_lstadd_front(t_stack **lst, t_stack *new);
@@ -79,7 +78,4 @@ int		search_min(t_stack **tmp);
 void	ft_sort_100(t_stack **stack_a, t_stack **stack_b);
 int		ft_bits(t_stack **stack_a);
 void	ft_index(t_stack **stack_a);
-
-int	is_null_args(char *argv[]);
-
 #endif

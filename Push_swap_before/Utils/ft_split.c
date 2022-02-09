@@ -6,7 +6,7 @@
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/07/27 16:29:57 by nkolle            #+#    #+#             */
-/*   Updated: 2022/02/09 18:06:18 by nkolle           ###   ########.fr       */
+/*   Updated: 2022/02/07 16:10:10 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,7 +86,7 @@ char	**ft_split(char const *s, char c)
 	size_t	counter;
 	size_t	len_s;
 
-	if (s == NULL)
+	if (!s)
 		return (NULL);
 	len_s = ft_strlen(s);
 	newstr = (char *) malloc(sizeof(char) * (len_s + 1));
