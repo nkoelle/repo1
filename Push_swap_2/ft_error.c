@@ -1,35 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strdup.c                                        :+:      :+:    :+:   */
+/*   ft_error.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/07/16 11:44:42 by nkolle            #+#    #+#             */
-/*   Updated: 2022/01/24 17:03:32 by nkolle           ###   ########.fr       */
+/*   Created: 2022/01/24 16:17:41 by nkolle            #+#    #+#             */
+/*   Updated: 2022/02/10 12:09:08 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../Push_swap.h"
+#include "Push_swap.h"
 
-char	*ft_strdup(const char *s1)
+// check wether number is duplicated
+int	ft_dupnumb(t_stack *stack_a, int c)
 {
-	int		i;
-	int		len;
-	char	*dst;
+	t_stack	*tmp;
 
-	i = 0;
-	len = ft_strlen(s1);
-	if (s1 == NULL)
-		return (NULL);
-	dst = malloc(sizeof(char) * (len + 1));
-	if (dst == NULL)
-		return (NULL);
-	while (i < len)
+	tmp = stack_a;
+	while (tmp != NULL)
 	{
-		dst[i] = s1[i];
-		i++;
+		if (tmp->content == c)
+			return (1);
+		if (tmp->content != c)
+			tmp = tmp->next;
 	}
-	dst[i] = '\0';
-	return (dst);
+	return (0);
 }

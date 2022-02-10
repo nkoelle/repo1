@@ -6,7 +6,7 @@
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:07:33 by nkolle            #+#    #+#             */
-/*   Updated: 2022/02/09 18:22:50 by nkolle           ###   ########.fr       */
+/*   Updated: 2022/02/10 12:53:34 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,6 @@ typedef struct s_stack
 int		main(int argc, char **argv);
 
 // ft_error managament
-int		ft_isint(char **argv);
-int		ft_sizeofint(char *s);
 int		ft_dupnumb(t_stack *stack_a, int c);
 
 // Utils = helperfunctions for allocating or other stuff
@@ -48,6 +46,8 @@ int		ft_isdigit(int c);
 char	**ft_split(char const *s, char c);
 int		ft_lstsize(t_stack *lst);
 int		min_min(char *s, char *s1, int *i);
+int		is_null_args(char *argv[]);
+int		push_string(t_stack **stack_a, char **s, int *error, int t);
 
 //Operations
 void	rotate_ra(t_stack **head);
@@ -71,6 +71,7 @@ void	case_five(t_stack **stack_a);
 void	ft_sort_2(t_stack **stack_a, int argc);
 void	ft_sort_3(t_stack **stack_a, int argc);
 int		ft_sorted(t_stack **stack_a);
+void	sort_stack(int argc, t_stack **stack_a, t_stack **stack_b);
 // sort <= 5
 void	ft_sort_5(t_stack **stack_a, t_stack **stack_b, int argc);
 void	find_min(t_stack **stack_a, t_stack **stack_b);
@@ -79,7 +80,5 @@ int		search_min(t_stack **tmp);
 void	ft_sort_100(t_stack **stack_a, t_stack **stack_b);
 int		ft_bits(t_stack **stack_a);
 void	ft_index(t_stack **stack_a);
-
-int	is_null_args(char *argv[]);
 
 #endif
