@@ -6,7 +6,7 @@
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/18 17:07:15 by nkolle            #+#    #+#             */
-/*   Updated: 2022/02/10 12:55:07 by nkolle           ###   ########.fr       */
+/*   Updated: 2022/02/10 14:45:20 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,11 +92,13 @@ int	main(int argc, char **argv)
 	if (convert_string(&stack_a, argv, argc, &error) == 1)
 		return (ft_error_message());
 	argc = ft_lstsize(stack_a);
-	ft_sorted(&stack_a);
+	if (ft_sorted(&stack_a))
+		return (0);
 	if (error == 3)
 		return (0);
 	if (error == 1)
 		return (ft_error_message());
 	sort_stack(argc, &stack_a, &stack_b);
+	exit (0);
 	return (0);
 }
