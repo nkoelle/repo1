@@ -1,29 +1,16 @@
-# include <stdio.h>
-# include <stdarg.h>
-# include <unistd.h>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   test.c                                             :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2022/02/21 16:49:10 by nkolle            #+#    #+#             */
+/*   Updated: 2022/02/21 17:56:01 by nkolle           ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-void	ft_putchar(char c, int *counter)
-{
-	write(1, &c, 1);
-	*counter += 1;
-}
-
-void	ft_putstr(char *s, int *counter)
-{
-	int	i;
-
-	i = -1;
-	if (s == NULL)
-	{
-		write(1, "(null)", 6);
-		*counter += 6;
-		return ;
-	}
-	while (s[++i] != '\0')
-	{
-		ft_putchar(s[i], counter);
-	}
-}
+#include"ft_printf.h"
 
 static void	ft_base(
 	unsigned long arg, unsigned int base, char *digits, int *counter)
@@ -49,7 +36,7 @@ void	ft_check_type(va_list arg, char c, int *counter)
 {
 	if (c == 's')
 		ft_putstr(va_arg(arg, char *), counter);
-	if (c == 'd')
+	if (c == 'd' || c == 'i')
 		ft_sbase(va_arg(arg, int), 10, "0123456789", counter);
 	if (c == 'x')
 		ft_base(
