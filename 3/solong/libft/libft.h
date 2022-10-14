@@ -6,7 +6,7 @@
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/08/02 18:22:30 by nkolle            #+#    #+#             */
-/*   Updated: 2022/01/05 15:41:35 by nkolle           ###   ########.fr       */
+/*   Updated: 2022/10/13 18:58:58 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct s_list
 	void			*content;
 	struct s_list	*next;
 }				t_list;
+
 void	*ft_memset(void *b, int c, size_t len);
 char	*ft_eof(char **line, char **buf);
 void	ft_bzero(void *s, size_t n);

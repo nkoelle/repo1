@@ -1,36 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   Animal.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/16 15:49:37 by nkolle            #+#    #+#             */
-/*   Updated: 2022/10/13 18:55:36 by nkolle           ###   ########.fr       */
+/*   Created: 2022/10/11 16:38:24 by nkolle            #+#    #+#             */
+/*   Updated: 2022/10/14 14:11:36 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
+#ifndef ANIMAL_HPP
+#define ANIMAL_HPP
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+#include <iostream>
+
+class Animal
 {
-	int		len;
-	int		src_len;
+    protected:
+        std::string _type;
+    
+    public:
+        Animal();
+        ~Animal();
+        
+        virtual void    makeSound()const;
+        std::string     getType()const;
+        void            settype(std::string type);
+};
 
-	len = 0;
-	src_len = ft_strlen(src);
-	while (*dst && dstsize > 0)
-	{
-		dst++;
-		len++;
-		dstsize--;
-	}
-	while (*src && dstsize > 1)
-	{
-		*dst++ = *src++;
-		dstsize--;
-	}
-	if (dstsize == 1 || *src == 0)
-		*dst = '\0';
-	return ((unsigned long)(src_len + len));
-}
+#endif

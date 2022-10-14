@@ -1,36 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strlcat.c                                       :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/06/16 15:49:37 by nkolle            #+#    #+#             */
-/*   Updated: 2022/10/13 18:55:36 by nkolle           ###   ########.fr       */
+/*   Created: 2022/10/11 15:01:51 by nkolle            #+#    #+#             */
+/*   Updated: 2022/10/11 16:07:16 by nkolle           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-//#include "libft.h"
+#ifndef FRAGTRAP_HPP
+#define Fragtrap_HPP
 
-size_t	ft_strlcat(char *dst, const char *src, size_t dstsize)
+#include "ScavTrap.hpp"
+
+class FragTrap : public ScavTrap
 {
-	int		len;
-	int		src_len;
+   public:
+        FragTrap();
+        FragTrap(std::string Name);
+        ~FragTrap();
 
-	len = 0;
-	src_len = ft_strlen(src);
-	while (*dst && dstsize > 0)
-	{
-		dst++;
-		len++;
-		dstsize--;
-	}
-	while (*src && dstsize > 1)
-	{
-		*dst++ = *src++;
-		dstsize--;
-	}
-	if (dstsize == 1 || *src == 0)
-		*dst = '\0';
-	return ((unsigned long)(src_len + len));
-}
+        void    highFivesGuys();
+
+};
+
+#endif
