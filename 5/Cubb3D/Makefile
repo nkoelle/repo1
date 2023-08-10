@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: nkolle <nkolle@student.42.fr>              +#+  +:+       +#+         #
+#    By: marius <marius@student.42.fr>              +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/03 13:59:31 by kfergani          #+#    #+#              #
-#    Updated: 2022/12/05 16:46:50 by nkolle           ###   ########.fr        #
+#    Updated: 2022/12/06 21:02:59 by marius           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,7 +33,7 @@ OBJECTS 	= $(patsubst %.c, %.o, $(SOURCES))
 
 CC			= 	gcc
 CFLAGS 		= -Wall -Wextra -Werror -lglfw 
-MLXFLAGS	= /Users/$(USER)/.brew/opt/glfw/lib/
+MLXFLAGS	= /usr/local/Cellar/glfw/3.3.8
 
 all: $(NAME)
 
