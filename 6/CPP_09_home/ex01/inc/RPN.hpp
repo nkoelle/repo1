@@ -1,4 +1,4 @@
-#pragma once RPP_HPP
+#pragma once
 
 #include <iostream>
 #include <stack>
@@ -10,10 +10,10 @@
 class RPN
 {
 	private:
+	std::stack<int>	stack;
 
 	public:
-
-	//**De- / & Constructor**//
+	//**De-/ & Constructor**//
 	RPN();
 	RPN(const RPN& obj);
 	~RPN();
