@@ -1,10 +1,10 @@
 
-NAME			= ./RPN
+NAME			= ./PmergeMe
 CXX				= c++
 CXXFLAGS		= -std=c++98 -Wall -Wextra -Werror
 
 
-SRC				= ./src/main.cpp ./src/RPN.cpp
+SRC				= ./src/main.cpp ./src/PmergeMe.cpp
 OBJ				= $(SRC:.cpp=.o)
 
 all:	$(NAME)
