@@ -3,19 +3,19 @@
 int	main(int argc, char *argv[])
 {
 	std::vector<int>	vec;
-	std::deque<int>		deq;
+	PmergeMe			Pgm;
 
 
-	if (argc < 2)
-	{
-		std::cout << "ERROR: no input found." << std::endl; 
-		return (0);
-	}
-	for (int i = 1; argc > i ; i++)
-	{
-		//check number
-		vec.push_front(argv[i]);
-		deq.push_front(argv[i]);
-	}
+	if (!Pgm.validate_argv(argc, argv))
+		{
+			std::cout << "Error: invalid input!" << std::endl;
+			return (1);
+		}
+	for (int i = 1; i < argc; i++)
+		vec.push_back(atoi(argv[i]));
+	std::deque<int>		deq(vec.begin(), vec.end());
+	std::cout << "Before: " << std::endl;
+	Pgm.print_vec(vec);
+	Pgm.print_vec(deq);
 	return (0);
 }

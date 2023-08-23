@@ -10,6 +10,7 @@
 #include <ctime>
 #include <cmath>
 #include <utility>
+#include <cctype>
 
 
 class PmergeMe
@@ -30,5 +31,14 @@ class PmergeMe
 		void	load_input(std::string input);
 
 	//*Helperfuncitons**//
-
+		bool	validate_argv(int argc,char **argv);
+	//**Templatefunctions
+		template<typename T>
+		void	print_vec(T	const& vec)
+		{
+			typename T::const_iterator	it;
+			for (it = vec.begin(); it != vec.end(); ++it)
+				std::cout << *it;
+			std::cout << std::endl;
+		}
 };
