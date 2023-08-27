@@ -28,7 +28,9 @@ class PmergeMe
 		PmergeMe& operator=(const PmergeMe& rhs);
 
 	//**Memberfuncitons**//
-		void	load_input(std::string input);
+		void	sort_deq(std::deque<int>& deq, int pos1, int pos2);
+		void	sort_deq_half(std::deque<int>& deq, int pos1, int pos2);
+		void	create_whole_deq(std::deque<int>& deq, int start, int mid, int end);
 
 	//*Helperfuncitons**//
 		bool	validate_argv(int argc,char **argv);
