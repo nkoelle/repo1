@@ -25,14 +25,14 @@ void	PmergeMe::sort_deq_half(std::deque<int>& deq, int pos1, int pos2)
 {
 	int			i, num, new_ind;
 
-	for (i = pos1; i <= pos2; ++i)
+	for (i = 1 + pos1; i <= pos2; i++)
 	{
 		num = deq[i];
 		new_ind = i - 1;
-		while (new_ind <= pos1 && deq[new_ind] > num)
+		while (new_ind >= pos1 && deq[new_ind] > num)
 		{
 			deq[new_ind + 1] = deq[new_ind];
-			new_ind--;
+			new_ind = new_ind - 1;
 		}
 		deq[new_ind + 1] = num;
 	}
@@ -90,14 +90,14 @@ void	PmergeMe::sort_vec_half(std::vector<int>& vec, int pos1, int pos2)
 {
 	int			i, num, new_ind;
 
-	for (i = pos1;i <= pos2; ++i)
+	for (i = pos1 + 1; i <= pos2; i++)
 	{
 		num = vec[i];
 		new_ind = i - 1;
-		while (new_ind <= pos1 && vec[new_ind] > num)
+		while (new_ind >= pos1 && vec[new_ind] > num)
 		{
 			vec[new_ind + 1] = vec[new_ind];
-			new_ind--;
+			new_ind = new_ind - 1;
 		}
 		vec[new_ind + 1] = num;
 	}

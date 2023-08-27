@@ -44,7 +44,7 @@ class PmergeMe
 		{
 			typename T::const_iterator	it;
 			for (it = vec.begin(); it != vec.end(); ++it)
-				std::cout << *it;
+				std::cout << *it << " ";
 			std::cout << std::endl;
 		}
 };
