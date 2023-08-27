@@ -19,6 +19,10 @@ int	main(int argc, char *argv[])
 	Pgm.sort_deq(deq, 0 , deq.size());
 	t_end = clock();
 	diff_deq = t_end - t_begin;
+	t_begin = clock();
+	Pgm.sort_vec(vec, 0 , vec.size());
+	t_end = clock();
+	diff_vec = t_end - t_begin;
 	std::cout << "After: " << std::endl;
 	std::cout << "Time to process a range of 3000 elements with std::vector :: " << std::endl;
 	std::cout << "Time to process a range of 3000 elements with std::deque :: " << std::endl;

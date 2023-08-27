@@ -20,6 +20,7 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& rhs)
 }
 
 //**Memberfunctions**//
+//sort deque algo//
 void	PmergeMe::sort_deq_half(std::deque<int>& deq, int pos1, int pos2)
 {
 	int			i, num, new_ind;
@@ -83,6 +84,71 @@ void	PmergeMe::sort_deq(std::deque<int>& deq, int pos1, int pos2)
 	}
 	else
 		sort_deq_half(deq, 0, deq.size());
+}
+//sort vector algo//
+void	PmergeMe::sort_vec_half(std::vector<int>& vec, int pos1, int pos2)
+{
+	int			i, num, new_ind;
+	i = pos1;
+	for (i <= pos2; ++i;)
+	{
+		num = vec[i];
+		new_ind = i - 1;
+		while (new_ind <= pos1 && vec[new_ind] > num)
+		{
+			vec[new_ind + 1] = vec[new_ind];
+			new_ind--;
+		}
+		vec[new_ind + 1] = num;
+	}
+}
+
+void	PmergeMe::create_whole_vec(std::vector<int>& vec, int start, int mid, int end)
+{
+	int	q = mid - start + 1;
+	int	p = end - mid;
+	int	l = 0;				// index left vec1
+	int	r = 0;				//index right vec2
+
+	std::vector<int> vec1(vec.begin() + start,vec.begin() + mid + 1);
+	std::vector<int> vec2(vec.begin() + mid + 1, vec.begin() + end + 1);
+
+	for (int i = start; i < end - mid + 1; i++)
+	{
+		if (r == p) {
+			vec[i] = vec1[l];
+		} 
+		else if (l == q) 
+		{
+			vec[i] = vec2[r];
+			r++;
+		} 
+		else if (vec2[r] > vec1[l]) 
+			vec[i] = vec1[l]; 
+		else 
+		{
+			vec[i] = vec[r];
+			r++;
+		}
+	}
+}
+
+void	PmergeMe::sort_vec(std::vector<int>& vec, int pos1, int pos2)
+{
+	int		pos_mid = vec.size() / 2;
+	int		pos_l = 0;
+	int		pos_r = vec.size() - 1;
+
+	if (vec.size() == 0 || vec.size() == 1)
+		return;
+	if (vec.size() > 3000)
+	{
+		sort_vec(vec, pos_l, pos_mid);
+		sort_vec(vec, pos_mid + 1, pos_r);
+		create_whole_vec(vec, pos_l, pos_mid, vec.size());
+	}
+	else
+		sort_vec_half(vec, 0, vec.size());
 }
 
 //**Helperfunctions**//

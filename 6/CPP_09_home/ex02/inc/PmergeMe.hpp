@@ -32,6 +32,10 @@ class PmergeMe
 		void	sort_deq_half(std::deque<int>& deq, int pos1, int pos2);
 		void	create_whole_deq(std::deque<int>& deq, int start, int mid, int end);
 
+		void	sort_vec(std::vector<int>& vec, int pos1, int pos2);
+		void	sort_vec_half(std::vector<int>& vec, int pos1, int pos2);
+		void	create_whole_vec(std::vector<int>& vec, int start, int mid, int end);
+
 	//*Helperfuncitons**//
 		bool	validate_argv(int argc,char **argv);
 	//**Templatefunctions
