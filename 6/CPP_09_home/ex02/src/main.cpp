@@ -24,7 +24,7 @@ int	main(int argc, char *argv[])
 	t_end = clock();
 	diff_vec = t_end - t_begin;
 	std::cout << "After: " << std::endl;
-	std::cout << "Time to process a range of 3000 elements with std::vector :: " << std::endl;
-	std::cout << "Time to process a range of 3000 elements with std::deque :: " << std::endl;
+	std::cout << "Time to process a range of 3000 elements with std::vector :: " << diff_vec / CLOCKS_PER_SEC * 1000000.0 << std::endl; // vector diff
+	std::cout << "Time to process a range of 3000 elements with std::deque :: " << diff_deq / CLOCKS_PER_SEC * 1000000.0 <<std::endl; //  deq diff
 	return (0);
 }

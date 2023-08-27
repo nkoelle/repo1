@@ -24,8 +24,8 @@ PmergeMe& PmergeMe::operator=(const PmergeMe& rhs)
 void	PmergeMe::sort_deq_half(std::deque<int>& deq, int pos1, int pos2)
 {
 	int			i, num, new_ind;
-	i = pos1;
-	for (i <= pos2; ++i;)
+
+	for (i = pos1; i <= pos2; ++i)
 	{
 		num = deq[i];
 		new_ind = i - 1;
@@ -71,8 +71,8 @@ void	PmergeMe::create_whole_deq(std::deque<int>& deq, int start, int mid, int en
 void	PmergeMe::sort_deq(std::deque<int>& deq, int pos1, int pos2)
 {
 	int		pos_mid = deq.size() / 2;
-	int		pos_l = 0;
-	int		pos_r = deq.size() - 1;
+	int		pos_l = pos1;
+	int		pos_r = pos2 - 1;
 
 	if (deq.size() == 0 || deq.size() == 1)
 		return;
@@ -89,8 +89,8 @@ void	PmergeMe::sort_deq(std::deque<int>& deq, int pos1, int pos2)
 void	PmergeMe::sort_vec_half(std::vector<int>& vec, int pos1, int pos2)
 {
 	int			i, num, new_ind;
-	i = pos1;
-	for (i <= pos2; ++i;)
+
+	for (i = pos1;i <= pos2; ++i)
 	{
 		num = vec[i];
 		new_ind = i - 1;
@@ -136,8 +136,8 @@ void	PmergeMe::create_whole_vec(std::vector<int>& vec, int start, int mid, int e
 void	PmergeMe::sort_vec(std::vector<int>& vec, int pos1, int pos2)
 {
 	int		pos_mid = vec.size() / 2;
-	int		pos_l = 0;
-	int		pos_r = vec.size() - 1;
+	int		pos_l = pos1;
+	int		pos_r = pos2 - 1;
 
 	if (vec.size() == 0 || vec.size() == 1)
 		return;
