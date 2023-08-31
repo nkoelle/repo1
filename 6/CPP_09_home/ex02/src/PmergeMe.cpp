@@ -10,7 +10,7 @@ PmergeMe::PmergeMe(const PmergeMe& rhs)
 
 PmergeMe::~PmergeMe(){}
 
-//**Opedeq2tor**//
+//**Operator**//
 
 PmergeMe& PmergeMe::operator=(const PmergeMe& rhs) 
 {
@@ -52,6 +52,7 @@ void	PmergeMe::create_whole_deq(std::deque<int>& deq, int start, int mid, int en
 	{
 		if (r == p) {
 			deq[i] = deq1[l];
+			l++;
 		} 
 		else if (l == q) 
 		{
@@ -59,7 +60,10 @@ void	PmergeMe::create_whole_deq(std::deque<int>& deq, int start, int mid, int en
 			r++;
 		} 
 		else if (deq2[r] > deq1[l]) 
+		{
 			deq[i] = deq1[l]; 
+			l++;
+		}
 		else 
 		{
 			deq[i] = deq2[r];
@@ -78,12 +82,13 @@ void	PmergeMe::sort_deq(std::deque<int>& deq, int pos1, int pos2)
 		return;
 	if (deq.size() > 3000)
 	{
+		//case noch checken
 		sort_deq(deq, pos_l, pos_mid);
 		sort_deq(deq, pos_mid + 1, pos_r);
 		create_whole_deq(deq, pos_l, pos_mid, deq.size());
 	}
 	else
-		sort_deq_half(deq, 0, deq.size());
+		sort_deq_half(deq, pos1, pos2);
 }
 //sort vector algo//
 void	PmergeMe::sort_vec_half(std::vector<int>& vec, int pos1, int pos2)
@@ -117,15 +122,19 @@ void	PmergeMe::create_whole_vec(std::vector<int>& vec, int start, int mid, int e
 	{
 		if (r == p) {
 			vec[i] = vec1[l];
+			l++;
 		} 
-		else if (l == q) 
+		else if (l == q)
 		{
 			vec[i] = vec2[r];
 			r++;
-		} 
-		else if (vec2[r] > vec1[l]) 
+		}
+		else if (vec2[r] > vec1[l])
+		{
 			vec[i] = vec1[l]; 
-		else 
+			l++;
+		}
+		else
 		{
 			vec[i] = vec[r];
 			r++;
@@ -148,21 +157,26 @@ void	PmergeMe::sort_vec(std::vector<int>& vec, int pos1, int pos2)
 		create_whole_vec(vec, pos_l, pos_mid, vec.size());
 	}
 	else
-		sort_vec_half(vec, 0, vec.size());
+		sort_vec_half(vec, pos1, pos2);
 }
 
 //**Helperfunctions**//
 
-bool	PmergeMe::validate_argv(int argc, char **argv)
+bool	PmergeMe::validate_argv(int argc, char *argv[])
 {
-	if (argc < 2)
+	char	c;
+	std::string	s;
+
+	if (argc < 2 || argc > 3100)
 		return false;
-	for (int i = 1; i < atoi(argv[i]); ++i)
+	for (int i = 1; i < argc; ++i)
 	{
-		if (!std::isdigit(atoi(argv[i]))|| atoi(argv[i]) < 0)
+		s = argv[i];
+		for (int p = 0; s[p]; p++)
 		{
-			std::cout << "isdigit:  " << std::isdigit(6) << std::endl;
-			return false;
+			c = s[p];
+			if (!std::isdigit(c))
+				return false;
 		}
 	}
 	return true;
