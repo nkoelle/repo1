@@ -9,6 +9,15 @@ Warlock::Warlock(const std::string& name,const std::string& title):name_(name),t
 
 Warlock::~Warlock()
 {
+    for (std::map<std::string, ASpell *>::iterator it = spellbook_.begin(); it !=  spellbook_.end(); it++)
+    {
+        if (!spellbook_.empty())
+        {
+            delete it->second;
+            spellbook_.erase(it);
+        }
+    }
+    this->spellbook_.clear();
     std::cout << name_ << ": My job here is done!" << std::endl;
 }
 
@@ -69,7 +78,8 @@ void    Warlock::launchSpell(std::string spellname,const ATarget& target)
     {
         std::map<std::string, ASpell*>::iterator    it = spellbook_.find(spellname);
         std::map<std::string, ASpell*>::iterator    ite = spellbook_.end();
-        if (it != ite)
+        ATarget* testNull = NULL;
+        if (it != ite && &target != testNull)
         {
             std::cout << target.getType() << " has been " << it->second->getEffects() << "!" << std::endl;
             return;
@@ -77,4 +87,21 @@ void    Warlock::launchSpell(std::string spellname,const ATarget& target)
     }
     else    
         return ;
+}
+
+int main()
+{
+  Warlock richard("Richard", "the Titled");
+
+  Dummy bob;
+  Fwoosh* fwoosh = new Fwoosh();
+
+  richard.learnSpell(fwoosh);
+
+  richard.introduce();
+  richard.launchSpell("Fwoosh", bob);
+
+  richard.forgetSpell("Fwoosh");
+  richard.launchSpell("Fwoosh", bob);
+  return 0;
 }

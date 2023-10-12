@@ -7,7 +7,18 @@ SpellBook::SpellBook(const SpellBook& copy)
     *this = copy;
 }
 
-SpellBook::~SpellBook(){}
+SpellBook::~SpellBook()
+{
+    for (std::map<std::string, ASpell*>::iterator ite = spellbook_.begin(); ite != spellbook_.end() ; ite++)
+    {
+        if (!spellbook_.empty())
+        {
+            delete (ite->second);
+            spellbook_.erase(ite);
+        }
+    }
+    this->spellbook_.clear();
+}
 
 SpellBook&  SpellBook::operator=(const SpellBook& origin)
 {
