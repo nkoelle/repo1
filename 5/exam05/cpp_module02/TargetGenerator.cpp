@@ -19,7 +19,7 @@ TargetGenerator&    TargetGenerator::operator=(const TargetGenerator& origin)
 void    TargetGenerator::learnTargetType(ATarget* type)
 {
     if (type)
-        targ_[type->getType()] = type;
+        targ_[type->getType()] = type->clone();
 }
 
 void    TargetGenerator::forgetTargetType(std::string const& target)
