@@ -2,18 +2,19 @@
 
 #include <iostream>
 #include "ATarget.hpp"
-#include "ASpell.hpp"
 
 class ATarget;
 
 class Dummy : public ATarget
 {
-    private:
+    protected:
+
 
     public:
-        Dummy();
-        ~Dummy();
 
-        Dummy*          clone() const;
+    Dummy();
+    ~Dummy();
+
+    virtual Dummy*     clone() const;
 
 };

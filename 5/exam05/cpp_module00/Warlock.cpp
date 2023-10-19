@@ -45,23 +45,3 @@ void    Warlock::introduce() const
     std::cout << name_ << ": I am " << name_ << ", " << title_ << "!" << std::endl;
 }
 
-// void    Warlock::learnSpell(ASpell *spell)
-// {
-//     learnedspell_ = spell;
-// }
-// void    Warlock::forgetSpell(std::string spellname)
-// {
-//     if (learnedspell_->getName() == spellname)
-//     {
-//         delete learnedspell_;
-//         learnedspell_ = nullptr;
-//     }
-
-
-// void    Warlock::launchSpell(std::string spellname, ATarget& target)
-// {
-//     if (learnedspell_ != nullptr)
-//            std::cout << target.getType() << " has been " << learnedspell_->getEffects() << "!" << std::endl;
-//     else
-//         return ;
-// }

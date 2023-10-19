@@ -1,6 +1,8 @@
 #pragma once
 
 #include <iostream>
+#include <map>
+#include <algorithm>
 #include "ASpell.hpp"
 
 class Warlock
@@ -24,9 +26,5 @@ class Warlock
 
     void    setTitle(const std::string& Warlock);
     void    introduce() const;
-
-    // void    learnSpell(ASpell *spell);
-    // void    forgetSpell(std::string spellname);
-    // void    launchSpell(std::string spellname, ATarget& target);
 
 };

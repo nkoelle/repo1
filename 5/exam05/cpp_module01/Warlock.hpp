@@ -5,10 +5,8 @@
 #include <algorithm>
 #include "ASpell.hpp"
 #include "ATarget.hpp"
-#include "Dummy.hpp"
 #include "Fwoosh.hpp"
-
-class ATarget;
+#include "Dummy.hpp"
 
 class Warlock
 {
@@ -16,10 +14,9 @@ class Warlock
 
     std::string name_;
     std::string title_;
-    std::map<std::string, ASpell*> spellbook_;
-    Warlock();
     Warlock(const Warlock& copy);
-
+    Warlock();
+    std::map<std::string, ASpell*>  spellbook_;
     public:
 
     Warlock(const std::string& name,const std::string& title);
@@ -33,8 +30,8 @@ class Warlock
     void    setTitle(const std::string& Warlock);
     void    introduce() const;
 
-    void    learnSpell(ASpell *spell);
-    void    launchSpell(std::string spellname,const ATarget& target);
-    void    forgetSpell(std::string spellname);
 
+    void    learnSpell(ASpell* spell);
+    void    forgetSpell(std::string spellname);
+    void    launchSpell(std::string spellname,ATarget const& targ);
 };

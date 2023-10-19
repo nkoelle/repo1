@@ -1,19 +1,20 @@
 #pragma once
 
+#include <iostream>
 #include "ASpell.hpp"
+
+class ASpell;
 
 class Fwoosh : public ASpell
 {
-    private:
+    protected:
+
 
     public:
-        Fwoosh();
-        Fwoosh(std::string spellname);
-        ~Fwoosh();
 
-        std::string&      getType() const;
+    Fwoosh();
+    ~Fwoosh();
 
-        Fwoosh*           clone() const;
-        void              getHitBySpell(const ASpell& spell);
+    virtual Fwoosh*     clone() const;
 
 };
